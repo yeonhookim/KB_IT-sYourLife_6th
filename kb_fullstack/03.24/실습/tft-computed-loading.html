@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <style>
+      .spinner {
+        width: 40px;
+        height: 40px;
+        margin: 30px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+        border-top: 4px solid #3498db;
+        animation: spin 1s linear infinite;
+      }
+      @keyframes spin {
+        0% {
+          /* 시작이 0이라는 것 */
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <h1>Tff with Computed</h1>
+      <label for="category">카테고리 선택</label>
+      <select id="category" v-model="selectedCategory">
+        <option value="all">전체</option>
+        <option value="korean">한식</option>
+        <option value="japanese">일식</option>
+        <option value="chinese">중식</option>
+      </select>
+      <div class="loading-container" v-if="isLoading">
+        <div class="spinner"></div>
+        <p>데이터 로딩 중...</p>
+      </div>
+
+      <ul v-else>
+        <li v-for="(food, index) in foods" :key="index">{{ food.food }}</li>
+      </ul>
+    </div>
+
+    <script>
+      const { createApp, ref } = Vue;
+
+      createApp({
+        name: 'App',
+        data() {
+          return {
+            foods: [],
+            selectedCategory: 'all',
+            isLoading: true,
+          };
+        },
+        methods: {
+          async fetchFoodsByCategory(category) {
+            try {
+              this.isLoading = true;
+              const response = await fetch(
+                `https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/food/${category}`
+              );
+              this.foods = await response.json();
+            } catch (e) {
+              console.error(e);
+            } finally {
+              this.isLoading = false;
+            }
+          },
+        },
+        created() {
+          this.fetchFoodsByCategory(this.selectedCategory);
+        },
+        watch: {
+          selectedCategory(changeCategory) {
+            this.fetchFoodsByCategory(changeCategory);
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
+
+<!-- F12를 검사창 들어가서 Network-> Disable cache누르고 no throttling을 
+ 3G로 바꾸고 누르면 인터넷속도를 일부로 느리게 만들어서 로딩창을 볼 수 있음 -->

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>결과 페이지</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .result-message {
+        font-size: 24px;
+        font-weight: bold;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin-top: 20px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>결과 페이지</h1>
+
+    <div class="result-message" id="result-message">
+      <!-- 결과 메시지가 여기에 표시됩니다. -->
+    </div>
+
+    <button onclick="goBack()">돌아가기</button>
+
+    <script>
+      // URL에서 파라미터를 가져오는 함수
+      function getChoiceCount(option) {
+        let count = localStorage.getItem(option);
+        return count ? parseInt(count) : 0;
+      }
+
+      // 결과 표시 함수
+      function displayResult() {
+        const option1Count = getChoiceCount('Option 1'); // 옵션 1 선택 횟수
+        const option2Count = getChoiceCount('Option 2'); // 옵션 2 선택 횟수
+
+        const resultMessage = document.getElementById('result-message');
+        // 템플릿 리터럴을 사용하여 결과 표시
+        resultMessage.innerHTML = `옵션 1 선택 횟수: ${option1Count}번<br>옵션 2 선택 횟수: ${option2Count}번`;
+      }
+
+      // 돌아가기 버튼 클릭 시 메인 페이지로 돌아가기
+      function goBack() {
+        window.location.href = 'start.html'; // 메인 페이지로 돌아가기
+      }
+
+      // 페이지 로딩 시 결과 표시
+      displayResult();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 150px;
+        height: 150px;
+        background-color: dodgerblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">오늘의 날짜는?</div>
+    <script>
+      const boxEl = document.querySelector('.box');
+
+      function alertFunc() {
+        const today = new Date();
+        const dateString = today.toLocaleDateString();
+        alert(`오늘의 날짜는: ${dateString}`);
+      }
+
+      console.log(boxEl);
+      boxEl.addEventListener('click', alertFunc);
+    </script>
+  </body>
+</html>

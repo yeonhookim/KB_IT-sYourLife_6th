@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 :style="{backgroundStyle, fontStyle}">
+        여러 스타일 적용하기 by 객체
+      </h1>
+      <h1 :style="{...backgroundStyle, ...fontStyle}">
+        여러 스타일 적용하기 by 객체
+      </h1>
+      <!-- 전개연산자 ...을 쓰면 들어가지만 굳이라하심 -->
+      <h1 :style="[backgroundStyle, fontStyle]">
+        여러 스타일 적용하기 by 배열
+      </h1>
+      <!-- 배열이니까 대괄호 [ ] -->
+    </div>
+  </body>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          backgroundStyle: { backgroundColor: 'dodgerblue' },
+          fontStyle: { color: 'yellow' },
+        };
+      },
+    }).mount('#app');
+  </script>
+</html>
+<!-- 실제로 확인을 해보면 객체에 있으면 X -->
+<!-- 안되는 이유 ppt 15페이지 -->
+<!-- 객체를 여러개 쓰고 싶으면 배열을 쓰기 -->

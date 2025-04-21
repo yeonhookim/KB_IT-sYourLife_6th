@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TITLE</title>
+    <link rel="stylesheet" href="./Style.css" />
+    <!-- ./현재폴더 ../상위폴더 ../ ../ 상위상위폴더 -->
+    <script>
+      const headerEl = document.getElementById('headerEl');
+      console.log(headerEl);
+    </script>
+  </head>
+  <body>
+    <h1 id="headerEl">Hello world..!</h1>
+  </body>
+</html>
+
+<!-- document가 의미하는 것?
+null이 찍힘 
+왜 안 찍힐까?
+순서대로 찍지않았기 때문에,
+
+-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TITLE</title>
+    <link rel="stylesheet" href="./Style.css" />
+    <!-- ./현재폴더 ../상위폴더 ../ ../ 상위상위폴더 -->
+    <body>
+        <h1 id="headerEl">Hello world..!</h1>
+    <script>
+        const headerEl = document.getElementById('headerEl');
+        console.log(headerEl);
+      </script>
+    </head>
+  
+    </body>
+  </html>
+
+  
+  <!-- script defer src = 'main.js' 찾아보기 -->
+
+  <!-- async, defer 순서 -->

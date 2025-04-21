@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 이 코드가 있어야 실행 가능  -->
+  </head>
+  <body>
+    <div id="app">
+      <h1>{{ inputText }}</h1>
+      <input type="text" v-model="inputText" />
+    </div>
+  </body>
+  <script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+      name: 'App',
+      data() {
+        return {
+          inputText: 'input 태그에 값을 입력 하세요',
+        };
+      },
+    }).mount('#app');
+  </script>
+</html>
+<!-- 양방향으로 하면서 프레임에 약점?이있나 이거 한 번 찾아보기 -->

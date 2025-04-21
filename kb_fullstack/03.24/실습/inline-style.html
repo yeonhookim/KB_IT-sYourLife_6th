@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <h1 style="background-color: skyblue">일반 스타일</h1>
+      <h1 v-bind:style="{ backgroundColor: 'orange'}">Vue 스타일</h1>
+      <h1 v-bind:style="variableStyle">Vue 변수 스타일</h1>
+      <!-- 객체로 -->
+      <h1 :style="{backgroundColor : backgroundColor, color: color}">
+        여러 스타일 적용하기
+        <h1 :style="{backgroundColor, color}">
+            여러 스타일 적용하기  
+      </h1>
+      <!-- 위의 두 개는 같은 의미 이렇게 축약 가능함  -->
+    </div>
+  </body>
+  <script>
+    const { createApp } = Vue;
+
+    createApp({
+      data() {
+        return {
+          variableStyle: { backgroundColor: 'dodgerblue' }, // 변수명 수정
+          backgroundColor: '#ccc',
+          color: 'red',
+          //   위에 2개는 일반 문자열로 선언한 상태
+        };
+      },
+    }).mount('#app');
+  </script>
+</html>

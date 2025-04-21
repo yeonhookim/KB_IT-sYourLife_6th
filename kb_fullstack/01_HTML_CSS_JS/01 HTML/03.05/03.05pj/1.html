@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>밸런스 게임</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .game-buttons {
+        margin-top: 20px;
+      }
+      button {
+        font-size: 20px;
+        padding: 10px 20px;
+        margin: 10px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>밸런스 게임</h1>
+    <p>다음 중 어떤 것이 더 나은지 선택하세요!</p>
+
+    <div class="game-buttons">
+      <button onclick="chooseOption('Option 1')">옵션 1</button>
+      <button onclick="chooseOption('Option 2')">옵션 2</button>
+    </div>
+
+    <script>
+      // 선택 횟수를 로컬스토리지에서 가져오기
+      function getChoiceCount(option) {
+        let count = localStorage.getItem(option);
+        return count ? parseInt(count) : 0;
+      }
+
+      // 선택을 하면 로컬스토리지에 저장
+      function chooseOption(option) {
+        let count = getChoiceCount(option);
+        localStorage.setItem(option, count + 1); // 선택 횟수 증가 후 저장
+        location.href = 'result.html'; // 결과 페이지로 이동
+      }
+    </script>
+  </body>
+</html>

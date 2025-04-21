@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1 class="header">Hello, Protocol</h1>
+    <button onclick="fetchData()">백엔드 통신 경험하기</button>
+  </body>
+  <script>
+    const headerEl = document.querySelector('.header');
+    const endPoint =
+      'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/test';
+
+    async function fetchData() {
+      try {
+        //에러가 예상되는 코드 -> 통신을 쓸 예정 따라서 어씽크, 어웨이트씀
+
+        // 데이터를 받아야 하니까 const를 씀 response = res
+        const response = await fetch(
+          'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/test'
+        );
+        const data = await response.json();
+        console.log('🚀 ~ fetchData ~ data:', data);
+        headerEl.textContent = data.message;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    //F12로 콘솔누르고 하면 message라는 객체로 받아오는 거를 알 수 있음.
+
+    // async function fetchData() {
+    //   try {
+    //     const res = await fetch(
+    //       'https://port-0-tetz-night-back-m5yo5gmx92cc34bc.sel4.cloudtype.app/test'
+    //     );
+    //     const data = await res.json();
+    //     console.log(data);
+    //     headerEl.innerHTML = data.message;
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // }
+  </script>
+</html>

@@ -1,0 +1,27 @@
+<script setup>
+  // 자바스크립트
+  import CheckList from './components/CheckList.vue';
+  import TodoProps from './components/TodoProps.vue';
+  import EventProps from './components/EventProps.vue';
+
+  const sendingEvent = () => {
+    alert('부모 컴포넌트왈 비상!!!');
+  };
+</script>
+
+<template>
+  <!-- html 파트 -->
+  <div class="todo">
+    <h1>오늘의 할 일</h1>
+    <CheckList />
+    <hr />
+    <TodoProps todo="Vue 공부하기" />
+    <TodoProps todo="삼성 야구 보기" />
+    <CheckList />
+    <EventProps :parentEvent="sendingEvent" />
+  </div>
+</template>
+
+<style scoped>
+  /* css */
+</style>

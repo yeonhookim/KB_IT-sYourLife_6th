@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 이 코드가 있어야 실행 가능  -->
+  </head>
+  <body>
+    <body>
+      <div id="app" style="background-color: skyblue">
+        <h1>count : {{ count }}</h1>
+        <div v-on:click="iDontWantToDiscount" style="background-color: orange">
+          <h1>안쪽</h1>
+          <button v-on:click.stop="discount">안쪽 클릭!</button>
+          <!-- .stop을 추가함으로써 방지 -->
+        </div>
+        <h1>바깥쪽</h1>
+        <button v-on:click="discount">바깥 클릭!</button>
+      </div>
+    </body>
+    <script>
+      const vueApp = Vue.createApp({
+        name: 'App',
+        data() {
+          return { count: 10 };
+        },
+        methods: {
+          discount() {
+            this.count--;
+          },
+          iDontWantToDiscount() {
+            this.count--;
+          },
+        },
+      }).mount('#app');
+    </script>
+  </body>
+</html>
+<!-- 이벤트 버블링 -가 두 번 실행되었기 때문에  -->
+<!-- 요소들이 중첩될 때 -->

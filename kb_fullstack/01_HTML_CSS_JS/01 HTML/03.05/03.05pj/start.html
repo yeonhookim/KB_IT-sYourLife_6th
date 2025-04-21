@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 100px;
+        text-align: center;
+      }
+      button {
+        font-size: 20px;
+        border-radius: 20px;
+        margin-top: 200px;
+        width: 400px;
+        height: 200px;
+        margin: 100px 50px auto 50px;
+        background-color: black;
+        color: white;
+      }
+      h1,
+      span {
+        font-family: 'Black Han Sans';
+        font-weight: 400;
+        font-style: normal;
+      }
+    </style>
+  </head>
+  <body>
+    <form action="http://10.10.0.86:3000/form" method="POST">
+      <h1>더 괜찮은 답변을 고르세요</h1>
+      <hr />
+      <!-- 옵션 1 버튼 -->
+      <button id="question1" type="button" onclick="chooseOption('Option 1')">
+        내가 제일 못하는 팀
+      </button>
+      <span>VS</span>
+      <!-- 옵션 2 버튼 -->
+      <button id="question2" type="button" onclick="chooseOption('Option 2')">
+        내가 희망인 팀
+      </button>
+    </form>
+
+    <script>
+      // 선택 횟수를 로컬스토리지에서 가져오기
+      function getChoiceCount(option) {
+        let count = localStorage.getItem(option);
+        return count ? parseInt(count) : 0;
+      }
+
+      // 선택 시 로컬스토리지에 횟수 증가
+      function chooseOption(option) {
+        let count = getChoiceCount(option);
+        localStorage.setItem(option, count + 1); // 선택 횟수 증가 후 저장
+        window.location.href = 'result.html'; // 결과 페이지로 이동
+      }
+    </script>
+  </body>
+</html>

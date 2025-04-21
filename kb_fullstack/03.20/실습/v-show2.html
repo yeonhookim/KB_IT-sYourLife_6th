@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <!-- 이 코드가 있어야 실행 가능  -->
+  </head>
+  <body>
+    <div id="app">
+      <h1>랜덤으로 생성된 숫자를 맞춰 보세요!</h1>
+      <!-- <h1 v-show="amount < randNum ">Up</h1>
+      <h1 v-show="amount > randNum ">Down</h1>
+      <h1 v-show="amount === randNum ">정답!</h1>
+      숫자 맞추기 : <input type="text" v-model.number="amount" /> -->
+      <h1 v-if="amount < randNum">Up</h1>
+      <h1 v-else-if="amount > randNum">Down</h1>
+      <h1 v-else="amount">정답!</h1>
+      맞춰봐: <input type="text" v-model.number="amount" />
+    </div>
+  </body>
+  <script>
+    const { createApp, ref } = Vue;
+
+    createApp({
+      name: 'App',
+      data() {
+        return {
+          amount: 0,
+          randNum: parseInt(Math.random() * 10),
+        };
+      },
+    }).mount('#app');
+  </script>
+</html>

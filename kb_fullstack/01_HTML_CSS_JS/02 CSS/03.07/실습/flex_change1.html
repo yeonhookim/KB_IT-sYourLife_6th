@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .wrap {
+        width: 700px;
+      }
+      .container {
+        display: flex;
+      }
+
+      .container > div {
+        height: 30px;
+        width: 100px;
+        /* width:100px; 를 flex-grow:1로 대체가능 */
+        text-align: center;
+        line-height: 30px;
+        /* 글자높이 */
+      }
+
+      .container > div:nth-child(2n) {
+        background-color: orange;
+      }
+      .container > div:nth-child(2n + 1) {
+        background-color: skyblue;
+      }
+
+      ul {
+        padding: 0;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <div class="container"></div>
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+      <div>7</div>
+    </div>
+  </body>
+</html>

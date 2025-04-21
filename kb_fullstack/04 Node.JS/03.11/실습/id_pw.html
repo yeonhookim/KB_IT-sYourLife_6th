@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      const id = 'kyh';
+      const pw = '0608';
+
+      const idInput = prompt('ID를 입력 하세요');
+      const pwInput = prompt('비밀번호를 입력하세요');
+
+      if (id === idInput && pw === pwInput) {
+        console.log('로그인 성공');
+      } else if (id !== idInput && pw === pwInput) {
+        console.log('ID 가 틀렸습니다');
+      } else if (id === idInput && pw !== pwInput) {
+        console.log('PW 가 틀렸습니다');
+      } else {
+        console.log('둘 다 틀렸습니다');
+      }
+
+      //   if (id !== idInput && pw !== pwInput) return console.log('로그인 실패');
+      //   if (id === idInput && pw !== pwInput) return console.log('PW 불일치');
+      //   if (id !== idInput && pw === pwInput) return console.log('ID 불일치');
+
+      //   console.log('로그인 성공');
+      //   위에는 js에서 가능
+
+      //   if ((id == 'kyh', pw == '0608')) {
+      //     console.log('로그인 성공');
+      //   }
+      //   if ((id != 'kyh', pw == '0608')) {
+      //     console.log('ID가 틀렸습니다.');
+      //   }
+      //   if ((id == 'kyh', pw != '0608')) {
+      //     console.log('PW가 틀렸습니다.');
+      //   } else {
+      //     console.log('ID와 PW가 틀렸습니다.');
+      //   }
+    </script>
+  </head>
+  <body></body>
+</html>
