@@ -15,7 +15,7 @@ public class ComplicatedMain4 {
 
         complicatedProgram(new Dice() {
             @Override
-            public void run() 4
+            public void run() {
                 int rand = new Random().nextInt(6) + 1;
                 System.out.println("주사위의 값은 " + rand);
             }
