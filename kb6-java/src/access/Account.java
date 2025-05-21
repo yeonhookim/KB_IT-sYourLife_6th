@@ -1,5 +1,7 @@
 package access;
 
+import org.w3c.dom.ls.LSOutput;
+
 public class Account {
     int total;
 
@@ -9,7 +11,8 @@ public class Account {
     void deposit(int amount) {
         this.total += amount;
     }
-    void withdraw(int amount) {
+    void withdraw(int   amount) {
         this.total -= amount;
     }
+
 }
