@@ -2,18 +2,6 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/06_Jsp&amp;Sevlet/dynamic-web" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/06_Jsp&amp;Sevlet/ex02" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/06_MongoDB/java_ex" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/07_Spirng_Context/ex01" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/07_Spirng_Context/ex02" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/08_spring/ex01" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/08_spring/spring-test" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/ex05" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/ex06" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/jdbc_ex" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/jdbc_ex1" vcs="" />
-    <mapping directory="$PROJECT_DIR$/test_db" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/travelapp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
   </component>
 </project>
