@@ -26,5 +26,6 @@ public class MemberListControllerV1 {
        model.addAttribute("memberList", memberService.getMemberList());
 
        return "member/list";
+
    }
 }
